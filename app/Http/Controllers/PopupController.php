@@ -20,4 +20,10 @@ class PopupController extends Controller
         ]);
         return redirect(route('home'));
     }
+
+    public function delete($id)
+    {
+        $popup=Popup::findOrFail($id);
+        $popup->delete();
+    }
 }

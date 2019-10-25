@@ -24,3 +24,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/add','PopupController@add')->name('popupadd');
 Route::post('/home/store','PopupController@store')->name('popupstore');
+Route::get('home/delete/{id}','PopupController@delete')->name('popupdelete');
