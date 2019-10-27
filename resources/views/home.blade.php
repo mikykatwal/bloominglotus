@@ -11,7 +11,7 @@
             <tbody>
             @foreach($popup as $popups)
             <tr>
-                <td>{{$popups->id}}</td><td>{{$popups->content}}</td><td>{{$popups->show}}</td><td><a href = "#" class = "btn btn-success">Edit</a></td><td><a href = "{{route('popupdelete',$popups->id)}}" class = "btn btn-danger" style="text-decoration:none">Delete</a></td><td>{{$popups->created_at}}</td>
+                <td>{{$popups->id}}</td><td>{{$popups->content}}</td><td>{{$popups->show}}</td><td><a href = "{{route('popupedit',$popups->id)}}" class = "btn btn-success">Edit</a></td><td><a href = "{{route('popupdelete',$popups->id)}}" class = "btn btn-danger" style="text-decoration:none">Delete</a></td><td>{{$popups->created_at}}</td>
             </tr>
             @endforeach
             </tbody>

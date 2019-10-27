@@ -16,7 +16,7 @@ class PopupController extends Controller
     {
         $popup=Popup::create([
             'content'=>$request->content,
-            'show'=>$request->show
+            'show'=>$request->has('show') ? 'on' : 'off'
         ]);
         return redirect(route('home'));
     }
@@ -25,5 +25,24 @@ class PopupController extends Controller
     {
         $popup=Popup::findOrFail($id);
         $popup->delete();
+        return redirect(route('home'));
+    }
+
+    public function edit($id)
+    {
+        return view("modal/edit")->with('popups',Popup::find($id));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $popup=Popup::findOrFail($id);
+        $popup->content=$request->content;
+        $popup->save();
+        return redirect('home');
+    }
+
+    public function index()
+    {
+        return view('welcome')->with('popups',Popup::all());
     }
 }
